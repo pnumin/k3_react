@@ -9,7 +9,9 @@ function App() {
     // <Hello />
     // <MyClock />
     // <Box />
+    <>
     <MyDiv />
+    </>
   );
 }
 
