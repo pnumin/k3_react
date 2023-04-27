@@ -1,4 +1,5 @@
 import BoxRows from './BoxRows' ;
+
 const Box = () => {
     let mvlist = [
         {
@@ -203,7 +204,7 @@ const Box = () => {
         }
     ]
 
-    // console.log(mvlist);
+    console.log(mvlist);
     return (
         <main className="container">
             <article>
@@ -217,9 +218,8 @@ const Box = () => {
                             <th scope="col">증감</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <BoxRows mv={mvlist} />
-                    </tbody>
+                    <BoxRows mv={mvlist} />
+                    
                 </table>
             </article>
         </main>
