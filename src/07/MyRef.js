@@ -1,5 +1,5 @@
 const MyRef = () => {
-    let cnt1  = 1 ;
+    let cnt1 = 1;
 
     const showCnt = () => {
         console.log('cnt1 =', cnt1);
@@ -13,13 +13,16 @@ const MyRef = () => {
             <article>
                 <header>
                     <div className="grid">
-                        <button onClick={() => showCnt1()}>컴포넌트 변수 : {cnt1}</button>
+                        <div>컴포넌트 변수 : {cnt1}</div>
                     </div>
                 </header>
+                <div className="grid">
+                    <button onClick={() => showCnt1()}>컴포넌트 변수</button>
+                </div>
             </article>
         </main>
     );
 }
 
 
-export default MyRef ;
+export default MyRef;
