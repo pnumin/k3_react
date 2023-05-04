@@ -1,0 +1,40 @@
+.dt {
+    display: inline-flex; 
+    background-color:aliceblue;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border-radius: 10px;
+}
+.dt1 {
+    display: inline-flex; 
+    background-color: darkblue;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    border-radius: 10px;
+}
+.dt:hover{
+    background-color: darkblue;
+    color: white;
+}
+
+.sp1, .sp2 {
+    font-weight: bold;
+}
+
+.sp21 {
+    color: blue;
+
+}
+
+.sp22 {
+    color: green;
+
+}
+
+.sp23 {
+    color: red;
+
+}
