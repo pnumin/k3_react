@@ -1,6 +1,7 @@
 import dataTaccident from './dataTaccident.json';
 import TaccidentNav1 from './TaccidentNav1' ;
 import TaccidentNav2 from './TaccidentNav2' ;
+import TaccidentDetail from './TaccidentDetail';
 import { useState, useEffect } from 'react';
 
 const Taccident = () => {
@@ -30,11 +31,11 @@ const Taccident = () => {
     const [selData , setSelData] = useState({}) ;
 
     useEffect(() => {
-        console.log('Taccident sel1 useeffect []', sel1);
+        //console.log('Taccident sel1 useeffect []', sel1);
     }, []);
 
     useEffect(() => {
-        console.log('Taccident sel1 useeffect', sel1);
+        //console.log('Taccident sel1 useeffect', sel1);
     }, [sel1]);
 
     useEffect(() => {
@@ -42,15 +43,15 @@ const Taccident = () => {
         let temp = data.filter((item) => 
                 item.사고유형_대분류 === sel2[0] && item.사고유형_중분류 ===sel2[1]) ;
         setSelData(temp[0]) ;
-    }, [sel2]);
+    }, [sel2, data]);
 
     useEffect(() => {
         console.log('Taccident selData useeffect', selData) ;
     }, [selData]) ;
 
     useEffect(() => {
-        console.log('Taccident sel1 useeffect', sel1);
-        console.log('Taccident sel2 useeffect', sel2);
+        //console.log('Taccident sel1 useeffect', sel1);
+        //console.log('Taccident sel2 useeffect', sel2);
     });
 
     return (
@@ -60,6 +61,7 @@ const Taccident = () => {
                     <TaccidentNav1 c1 = {c1} sel1 = {sel1} setSel1 = {setSel1} />
                     <TaccidentNav2 c2 = {c2} sel1 = {sel1} sel2 = {sel2} setSel2 = {setSel2} />
                 </header>
+                {selData && <TaccidentDetail selData = {selData} />}
             </article>
         </main>
     );
