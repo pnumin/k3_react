@@ -1,34 +1,58 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import styles from './MyRef.module.css' ;
 const MyRef = () => {
-    let cnt1 = 1;
-    const [cnt2, setCnt2] = useState(1) ;
+    const txtref = useRef() ;
+    // const txtref2 = useRef() ;
 
-    const showCnt = () => {
-        console.log('cnt1 =', cnt1, 'cnt2 =', cnt2);
-    }
+    const itemArr = useRef([]) ;
+    const [itemTag, setItemTag] = useState() ;
 
-    const showCnt1 = () => {
-        cnt1 = cnt1 + 1 ;
-        showCnt();
-    }
+    useEffect(() => {
+        txtref.current.focus();
+    }, []);
 
-    const showCnt2 = () => {
-        setCnt2(cnt2 + 1) ;
-        showCnt();
-    }
+
+    const addItem = (e) => {
+        e.preventDefault();
+        itemArr.current = [...itemArr.current, txtref.current.value] ;
+        itemArr.current = [...new Set(itemArr.current)];
+        //itemArr.current = [...itemArr.current ] ;
+
+        let tempTag = itemArr.current.map(
+            (item, idx) => <span key={'sp'+idx} className={styles.sp}>{item}</span>
+        ) ;
+
+        setItemTag(tempTag) ;
+        console.log("addItem =",  itemArr.current);
+        resetItem();
+    } 
+
+    const resetItem = () => {
+        txtref.current.value = '' ;
+        txtref.current.focus();
+        console.log("resetItem");
+    } 
 
     return (
         <main className="container">
             <article>
                 <header>
-                    <div className="grid">
-                        <div><h1>컴포넌트 변수 : {cnt1}</h1></div>
-                        <div><h1>state 변수 : {cnt2}</h1></div>
-                    </div>
+                   <form>
+                        <div className="grid">
+                            <div>
+                                <label htmlFor="txt1">과일/채소 입력</label>
+                                <input ref={txtref} type="text" id="txt1" name="txt1" required />
+                                {/* <input ref={txtref2} type="text" id="txt2" name="txt2" required /> */}
+                            </div>
+                            <div>
+                                <button onClick={(e) => addItem(e)}>등록</button>
+                                <button onClick={(e) => resetItem(e)}>취소</button>
+                            </div>
+                        </div>
+                   </form>
                 </header>
-                <div className="grid">
-                    <button onClick={() => showCnt1()}>컴포넌트 변수</button>
-                    <button onClick={() => showCnt2()}>state 변수</button>
+                <div>
+                   {itemTag}
                 </div>
             </article>
         </main>
