@@ -6,7 +6,7 @@ const BoxRows = ({mv}) => {
     //console.log("boxrows",mv)
 
     // 상세정보
-    const [detail, setDetail] = useState('');
+    const [detail, setDetail] = useState();
 
     //클릭된 자료 확인
     const showMv = (line) => {
