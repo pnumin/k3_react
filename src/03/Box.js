@@ -2,7 +2,7 @@ import BoxRows from './BoxRows' ;
 import { useRef, useState, useEffect } from 'react';
 const Box = () => {
     const [mvlist, setMvlist] = useState() ;
-    let seldt ;
+   
 
     useEffect(() => {
         //어제날짜 만들기
@@ -10,7 +10,7 @@ const Box = () => {
         let yesterday = new Date() ;
         yesterday.setDate(yesterday.getDate() - 1) ;
 
-        seldt = yesterday.getFullYear() ;
+        let seldt = yesterday.getFullYear() ;
         let month = yesterday.getMonth()+1 ;
         month = month < 10 ? `0${month}` : month ;
         
@@ -30,7 +30,7 @@ const Box = () => {
 
     //날짜 선택
     const getDt = () => {
-        seldt = dt1.current.value.replaceAll('-','');
+        let seldt = dt1.current.value.replaceAll('-','');
         console.log("seldt=", seldt) ;
         getData(seldt) ;
     }
