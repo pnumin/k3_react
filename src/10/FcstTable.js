@@ -1,4 +1,6 @@
-const FcstTable = () => {
+const FcstTable = ({datas, gubun}) => {
+    console.log("datas", datas) ;
+    console.log("gubun", gubun) ;
 
     return (
         <table>
