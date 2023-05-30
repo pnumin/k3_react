@@ -11,7 +11,10 @@ import './App.css';
 // import RouteMain from './09/RouteMain' ;
 // import Fcst from './10/Fcst' ;
 // import Fcst from './101/Fcst';
-import CodeView from './102/CodeView' ;
+// import CodeView from './102/CodeView' ;
+import Cnt from './111/Cnt';
+
+import { RecoilRoot } from "recoil";
 
 function App() {
   return ( 
@@ -26,7 +29,11 @@ function App() {
     // <Gallery />
     // <RouteMain />
     // <Fcst />
-    <CodeView />
+    // <CodeView />
+    
+    <RecoilRoot>
+    <Cnt />
+    </RecoilRoot>
   );
 }
 
